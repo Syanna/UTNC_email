@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Email.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Email.py" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/PycharmProjects/UTNC_email/Email.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+            <state relative-caret-position="1122">
+              <caret line="123" column="19" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -43,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/PycharmProjects/UTNC_email/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
@@ -78,8 +78,8 @@
         <option value="$USER_HOME$/PycharmProjects/Email/account.config" />
         <option value="$USER_HOME$/PycharmProjects/Email/Email.py" />
         <option value="$USER_HOME$/PycharmProjects/Email/.gitignore" />
-        <option value="$USER_HOME$/PycharmProjects/UTNC_email/Email.py" />
         <option value="$USER_HOME$/PycharmProjects/UTNC_email/.gitignore" />
+        <option value="$USER_HOME$/PycharmProjects/UTNC_email/Email.py" />
       </list>
     </option>
   </component>
@@ -366,21 +366,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/UTNC_email/Email.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/PycharmProjects/UTNC_email/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/UTNC_email/Email.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="123" column="19" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

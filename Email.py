@@ -17,6 +17,7 @@ imap_user = ""
 imap_pass = ""
 config_file = "account.config" #Read this file for the username and password of email you are sending from
 
+
 def create_calendar():
     cal = Calendar()
     cal.add('prodid', '-//My calendar product//mxm.dk//')
@@ -39,14 +40,13 @@ def create_calendar():
 def read_calendar():
     g = open('test.ics', 'rb')
     gcal = Calendar.from_ical(g.read())
+    list_events = []
     for component in gcal.walk():
         if component.name == "VEVENT":
-            print(component.get('summary'))
-            start = component.get('dtstart')
-            end = component.get('dtend')
-            print(start.dt)
-            print(end.dt)
+            list_events.append(component)
     g.close()
+    return list_events
+
 
 def open_config():
     global imap_pass, imap_user
@@ -56,7 +56,7 @@ def open_config():
 
 def parse_command(command, sender):
     if command.lower() == 'schedule':
-        send_email(imap_user, imap_pass, sender, command, "Yo")
+        send_email(imap_user, imap_pass, sender, "Test", "Yo")
 
 
 def send_email(user, pwd, recipient, subject, body):
@@ -111,8 +111,15 @@ def check_email():
                     print(original['From'])
                     print(original['Subject'])
                     parse_command(original['Subject'], original['From'])
-                    #typ, data = mail.store(num, '+FLAGS', '\\UNSEEN')
+                    typ, data = mail.store(num, '-FLAGS', '\Seen') #Mark the email as unread, this should be added later so it only does it if it is an invalid command
 
 #check_email()
 #create_calendar()
-read_calendar()
+
+list_results = read_calendar()
+for component in list_results:
+    print(component.get('summary'))
+    start = component.get('dtstart')
+    end = component.get('dtend')
+    print(start.dt)
+    print(end.dt)
