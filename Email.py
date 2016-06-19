@@ -1,5 +1,5 @@
 import imaplib
-import datetime
+import time
 import email
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -7,11 +7,46 @@ from email.mime.text import MIMEText
 from mailer import Mailer
 from mailer import Message
 
+from icalendar import Calendar, Event
+from datetime import datetime
+
+
 
 imap_host = 'imap.gmail.com'
 imap_user = ""
 imap_pass = ""
 config_file = "account.config" #Read this file for the username and password of email you are sending from
+
+def create_calendar():
+    cal = Calendar()
+    cal.add('prodid', '-//My calendar product//mxm.dk//')
+    cal.add('version', '2.0')
+
+    event = Event()
+    event.add('summary', 'Python meeting about calendaring')
+    event.add('dtstart', datetime(2005, 4, 4, 8, 0, 0))
+    event.add('dtend', datetime(2005, 4, 4, 10, 0, 0))
+    event.add('dtstamp', datetime(2005, 4, 4, 0, 10, 0))
+    event['uid'] = '20050115T101010/27346262376@mxm.dk'
+    event.add('priority', 5)
+
+    cal.add_component(event)
+
+    f = open('example.ics', 'wb')
+    f.write(cal.to_ical())
+    f.close()
+
+def read_calendar():
+    g = open('test.ics', 'rb')
+    gcal = Calendar.from_ical(g.read())
+    for component in gcal.walk():
+        if component.name == "VEVENT":
+            print(component.get('summary'))
+            start = component.get('dtstart')
+            end = component.get('dtend')
+            print(start.dt)
+            print(end.dt)
+    g.close()
 
 def open_config():
     global imap_pass, imap_user
@@ -36,7 +71,7 @@ def send_email(user, pwd, recipient, subject, body):
     message = Message(From=FROM,
                       To=TO)
 
-    message.Subject = subject
+    message.Subject = SUBJECT
     message.Html = """
                         <html>
                           <head></head>
@@ -78,4 +113,6 @@ def check_email():
                     parse_command(original['Subject'], original['From'])
                     #typ, data = mail.store(num, '+FLAGS', '\\UNSEEN')
 
-check_email()
+#check_email()
+#create_calendar()
+read_calendar()
